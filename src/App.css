@@ -1,7 +1,8 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 body {
   width: 100vw;
@@ -19,22 +20,30 @@ h1 {
   font-size: 40px;
   font-weight: bold;
   color: #f6416c;
-  filter: drop-shadow(2px 2px 1px gray);
+  -webkit-filter: drop-shadow(2px 2px 1px gray);
+          filter: drop-shadow(2px 2px 1px gray);
 }
 
 .password-box {
   margin: 0 auto;
-  width: 70%;
+  max-width: 450px;
   height: 150px;
   background-color: #00b8a9;
   border-radius: 12px;
-  box-shadow: 0px 23px 19px -12px rgba(0, 0, 0, 0.4);
+  -webkit-box-shadow: 0px 23px 19px -12px rgba(0, 0, 0, 0.4);
+          box-shadow: 0px 23px 19px -12px rgba(0, 0, 0, 0.4);
 }
 
 .paragraphs {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   gap: 30px;
   font-family: monospace, sans-serif;
 }
@@ -48,36 +57,45 @@ h1 {
   padding: 5px;
   border-radius: 6px;
 }
-.holder-box {
-  color: #784ba0;
-  padding: 20px;
-  font-size: 24px;
-}
+
 
 .buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-evenly;
-  align-items: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 .password-button {
+  min-width: 125px;
   font-size: 18px;
   padding: 10px 20px;
   color: #252a34;
   background-color: #ffde7d;
-  box-shadow: 0 4px 1px rgb(173, 168, 151);
+  -webkit-box-shadow: 0 4px 1px rgb(173, 168, 151);
+          box-shadow: 0 4px 1px rgb(173, 168, 151);
   border: none;
   border-radius: 15px;
   cursor: pointer;
 }
 
 .password-button:active {
-  transform: translateY(3px);
-  box-shadow: 0 1px 1px gray;
+  -webkit-transform: translateY(3px);
+      -ms-transform: translateY(3px);
+          transform: translateY(3px);
+  -webkit-box-shadow: 0 1px 1px gray;
+          box-shadow: 0 1px 1px gray;
 }
 
 .password-button:disabled {
   background-color: #88816d;
-  box-shadow: none;
-  transform: translateY(0px);
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  -webkit-transform: translateY(0px);
+      -ms-transform: translateY(0px);
+          transform: translateY(0px);
 }
-

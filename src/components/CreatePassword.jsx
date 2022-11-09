@@ -32,6 +32,8 @@ const symbol = ['!', '#', '$', '%', '&', '*', '-', '+', '_', '='];
 
 const CreatePassword = () => {
   const [pass, setPass] = useState('Click the button');
+  const [buttonText, setButtonText] = useState('Copy');
+  const [disablet, setDisablet] = useState(true);
 
   function getRandomInt(max) {
     return Math.floor(Math.random() * max);
@@ -63,17 +65,23 @@ const CreatePassword = () => {
   const handleClick = () => {
     let finalResoltPass = randomPass.join('');
     setPass(finalResoltPass);
+    pass === 'Click the button' && setDisablet(false);
   };
 
-  const copy = async () => {
-    await navigator.clipboard.writeText(pass);
-    alert('Text copied');
+  const copy = () => {
+    navigator.clipboard.writeText(pass);
+    setButtonText('Copied!');
+    setTimeout(() => {
+      setButtonText('Copy');
+    }, 2000);
   };
 
   return (
     <div className='password-box'>
       {pass === 'Click the button' ? (
-        <p className='password-paragraph holder-box'>Click the button</p>
+        <div className='paragraphs'>
+          <p className='password-paragraph'>Click the button</p>
+        </div>
       ) : (
         <div className='paragraphs'>
           <p className='password-paragraph '>Your password:</p>
@@ -84,12 +92,8 @@ const CreatePassword = () => {
         <button className='password-button' onClick={handleClick}>
           Generate
         </button>
-        <button
-          className='password-button'
-          onClick={copy}
-          disabled={pass === 'Click the button' ? true : false}
-        >
-          Copy
+        <button className='password-button' onClick={copy} disabled={disablet}>
+          {buttonText}
         </button>
       </div>
     </div>
